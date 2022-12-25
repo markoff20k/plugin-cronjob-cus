@@ -1,0 +1,141 @@
+version: "3"
+services:
+  gas:
+    build:
+      context: gas
+    volumes:
+      - ./gas:/usr/src/app
+      - /usr/src/app/node_modules
+    container_name: gas
+    restart: always
+    environment:
+      - MYSQL_ENV_HOST=${MYSQL_ENV_HOST}
+      - MYSQL_ENV_PORT=${MYSQL_ENV_PORT}
+      - MYSQL_ENV_USER=${MYSQL_ENV_USER}
+      - MYSQL_ENV_PASSWORD=${MYSQL_ENV_PASSWORD}
+
+  eth_withdraw:
+    build:
+      context: eth_withdraw
+    volumes:
+      - ./eth_withdraw:/usr/src/app
+      - /usr/src/app/node_modules
+    container_name: eth_withdraw
+    restart: always
+    environment:
+      - MYSQL_ENV_HOST=${MYSQL_ENV_HOST}
+      - MYSQL_ENV_PORT=${MYSQL_ENV_PORT}
+      - MYSQL_ENV_USER=${MYSQL_ENV_USER}
+      - MYSQL_ENV_PASSWORD=${MYSQL_ENV_PASSWORD}
+
+  withdraw-refundation:
+    build:
+      context: withdraw-refundation
+    volumes:
+      - ./withdraw-refundation:/usr/src/app
+      - /usr/src/app/node_modules
+    container_name: withdraw-refundation
+    restart: always
+    environment:
+      - MYSQL_ENV_HOST=${MYSQL_ENV_HOST}
+      - MYSQL_ENV_PORT=${MYSQL_ENV_PORT}
+      - MYSQL_ENV_USER=${MYSQL_ENV_USER}
+      - MYSQL_ENV_PASSWORD=${MYSQL_ENV_PASSWORD}
+
+  stake:
+    build:
+      context: stake
+    volumes:
+      - ./stake:/usr/src/app
+      - /usr/src/app/node_modules
+    container_name: stake
+    restart: always
+    environment:
+      - MYSQL_ENV_HOST=${MYSQL_ENV_HOST}
+      - MYSQL_ENV_PORT=${MYSQL_ENV_PORT}
+      - MYSQL_ENV_USER=${MYSQL_ENV_USER}
+      - MYSQL_ENV_PASSWORD=${MYSQL_ENV_PASSWORD}
+
+  competition:
+    build:
+      context: competition
+    volumes:
+      - ./competition:/usr/src/app
+      - /usr/src/app/node_modules
+    container_name: competition
+    restart: always
+    environment:
+      - MYSQL_ENV_HOST=${MYSQL_ENV_HOST}
+      - MYSQL_ENV_PORT=${MYSQL_ENV_PORT}
+      - MYSQL_ENV_USER=${MYSQL_ENV_USER}
+      - MYSQL_ENV_PASSWORD=${MYSQL_ENV_PASSWORD}
+
+  referral:
+    build:
+      context: referral
+    volumes:
+      - ./referral:/usr/src/app
+      - /usr/src/app/node_modules
+    container_name: referral
+    restart: always
+    environment:
+      - MYSQL_ENV_HOST=${MYSQL_ENV_HOST}
+      - MYSQL_ENV_PORT=${MYSQL_ENV_PORT}
+      - MYSQL_ENV_USER=${MYSQL_ENV_USER}
+      - MYSQL_ENV_PASSWORD=${MYSQL_ENV_PASSWORD}
+
+  deposits:
+    build:
+      context: deposits
+    volumes:
+      - ./deposits:/usr/src/app
+      - /usr/src/app/node_modules
+    container_name: deposits
+    restart: always
+    environment:
+      - MYSQL_ENV_HOST=${MYSQL_ENV_HOST}
+      - MYSQL_ENV_PORT=${MYSQL_ENV_PORT}
+      - MYSQL_ENV_USER=${MYSQL_ENV_USER}
+      - MYSQL_ENV_PASSWORD=${MYSQL_ENV_PASSWORD}
+
+  ieo:
+    build:
+      context: ieo
+    volumes:
+      - ./ieo:/usr/src/app
+      - /usr/src/app/node_modules
+    container_name: ieo
+    restart: always
+    environment:
+      - MYSQL_ENV_HOST=${MYSQL_ENV_HOST}
+      - MYSQL_ENV_PORT=${MYSQL_ENV_PORT}
+      - MYSQL_ENV_USER=${MYSQL_ENV_USER}
+      - MYSQL_ENV_PASSWORD=${MYSQL_ENV_PASSWORD}
+
+  wallet:
+    build:
+      context: wallet
+    volumes:
+      - ./wallet:/app
+      - /app/wallet
+    container_name: wallet
+    restart: on-failure
+    environment:
+      - MYSQL_ENV_HOST=${MYSQL_ENV_HOST}
+      - MYSQL_ENV_PORT=${MYSQL_ENV_PORT}
+      - MYSQL_ENV_USER=${MYSQL_ENV_USER}
+      - MYSQL_ENV_PASSWORD=${MYSQL_ENV_PASSWORD}
+      - API_KEY=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
+  # holder:
+  #   build:
+  #     context: holder
+  #   volumes:
+  #     - ./holder:/usr/src/app
+  #     - /usr/src/app/node_modules
+  #   container_name: holder
+  #   restart: always
+  #   environment:
+  #     - MYSQL_ENV_HOST=${MYSQL_ENV_HOST}
+  #     - MYSQL_ENV_PORT=${MYSQL_ENV_PORT}
+  #     - MYSQL_ENV_USER=${MYSQL_ENV_USER}
+  #     - MYSQL_ENV_PASSWORD=${MYSQL_ENV_PASSWORD}
